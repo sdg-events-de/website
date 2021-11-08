@@ -3,7 +3,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Grid,
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -54,31 +53,25 @@ const MONTHS = [
 ];
 
 const EventCard = ({ event }) => (
-  <Grid item xs={12} sm={6} md={4}>
-    <CardWithFullHeight elevation={2}>
-      <CardActionAreaWithFullHeight
-        href={event.url}
-        target="_blank"
-        focusRipple
-      >
-        <CardContentWithoutOverflow>
-          <DateBox align="center" padding={2.5}>
-            <Typography variant="body1" color="primary" fontWeight={500}>
-              {MONTHS[new Date(event.starts_at).getMonth()]}
-            </Typography>
-            <Typography variant="h5" color="primary" fontWeight={500}>
-              {new Date(event.starts_at).getDate()}
-            </Typography>
-          </DateBox>
-          <Box padding={2.5} paddingLeft={0} style={{ overflow: "hidden" }}>
-            <CardTitle variant="body1">{event.title}</CardTitle>
-            {/* <EventCardMetaSection event={event} /> */}
-            <Typography variant="body2">{event.summary}</Typography>
-          </Box>
-        </CardContentWithoutOverflow>
-      </CardActionAreaWithFullHeight>
-    </CardWithFullHeight>
-  </Grid>
+  <CardWithFullHeight elevation={2}>
+    <CardActionAreaWithFullHeight href={event.url} target="_blank" focusRipple>
+      <CardContentWithoutOverflow>
+        <DateBox align="center" padding={2.5}>
+          <Typography variant="body1" color="primary" fontWeight={500}>
+            {MONTHS[new Date(event.starts_at).getMonth()]}
+          </Typography>
+          <Typography variant="h5" color="primary" fontWeight={500}>
+            {new Date(event.starts_at).getDate()}
+          </Typography>
+        </DateBox>
+        <Box padding={2.5} paddingLeft={0} style={{ overflow: "hidden" }}>
+          <CardTitle variant="body1">{event.title}</CardTitle>
+          {/* <EventCardMetaSection event={event} /> */}
+          <Typography variant="body2">{event.summary}</Typography>
+        </Box>
+      </CardContentWithoutOverflow>
+    </CardActionAreaWithFullHeight>
+  </CardWithFullHeight>
 );
 
 export default EventCard;

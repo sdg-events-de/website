@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import AppLayout from "layouts/AppLayout";
 import EventCard from "components/EventCard";
 
@@ -32,9 +32,13 @@ const Index = ({ events }) => (
           &mdash; t&auml;glich aktualisiert
         </Typography>
       </Box>
-      {events.map((event) => (
-        <EventCard key={event.id} event={event} />
-      ))}
+      <Grid container spacing={2}>
+        {events.map((event) => (
+          <Grid key={event.id} item lg={4} md={6} xs={12}>
+            <EventCard event={event} />
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   </AppLayout>
 );
