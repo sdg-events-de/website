@@ -159,7 +159,8 @@ const NavBar = ({ fluid = false }) => {
                     <IconButton
                       color="inherit"
                       aria-label="menu"
-                      onClick={toggleNavDrawer}
+                      // onClick={toggleNavDrawer}
+                      disabled
                     >
                       <Menu />
                     </IconButton>
@@ -190,8 +191,12 @@ const NavBar = ({ fluid = false }) => {
                   <Box display="flex" flexGrow={1} />
                   {pages.map(({ label, href }) => (
                     <Link key={href} href={href} passHref>
-                      <Button>
-                        <Typography variant="h4" component="p">
+                      <Button disabled>
+                        <Typography
+                          variant="h4"
+                          component="p"
+                          color="textSecondary"
+                        >
                           {label}
                         </Typography>
                       </Button>
