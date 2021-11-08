@@ -2,12 +2,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { Box, Drawer, List, ListItem, ListItemText } from "@mui/material";
 
-const NavBarDrawer = ({
-  pages,
-  title,
-  openDownloadDatabaseDialog,
-  ...otherProps
-}) => (
+const NavBarDrawer = ({ pages, ...otherProps }) => (
   <Drawer
     {...otherProps}
     PaperProps={{ style: { minWidth: "60%", maxWidth: "80%" } }}

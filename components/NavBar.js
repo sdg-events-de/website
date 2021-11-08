@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   AppBar,
@@ -7,7 +7,6 @@ import {
   Container,
   Hidden,
   IconButton,
-  MenuItem,
   Toolbar,
   Typography,
 } from "@mui/material";
