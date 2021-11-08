@@ -120,7 +120,7 @@ const pages = [
   },
 ];
 
-const NavBar = ({ fluid = true }) => {
+const NavBar = ({ fluid = false }) => {
   let containerProps = { maxWidth: "lg" };
 
   if (fluid) containerProps = { maxWidth: false };
