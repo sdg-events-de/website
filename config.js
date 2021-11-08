@@ -1,5 +1,5 @@
 // The page title
-export const TITLE = "Page Title";
+export const TITLE = "Events zu SDGs & Agenda 2030 in Deutschland";
 
 // The URL of the deployed page (used in meta tags for SMO)
 // Example: https://www.domain.com/

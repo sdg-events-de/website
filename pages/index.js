@@ -1,13 +1,17 @@
 import { Box, Container, Typography } from "@mui/material";
 import AppLayout from "layouts/AppLayout";
-// import Database from "models/Database";
-// import Event from "models/Event";
-// import EventGroup from "components/EventGroup";
+import EventCard from "components/EventCard";
 
-const Index = () => (
+const Index = ({ events }) => (
   <AppLayout>
     <Container>
-      <Box marginTop="5vh" textAlign="center" paddingTop={2} paddingBottom={2}>
+      <Box
+        marginTop="5vh"
+        marginBottom="5vh"
+        textAlign="center"
+        paddingTop={2}
+        paddingBottom={2}
+      >
         <Box
           component="img"
           src="/static/sdg-logo.png"
@@ -28,26 +32,19 @@ const Index = () => (
           &mdash; t&auml;glich aktualisiert
         </Typography>
       </Box>
-      <Box marginBottom="5vh">
-        {
-          // Search
-        }
-      </Box>
-      {/* {Object.keys(groupedEvents).map((group) => (
-        <EventGroup key={group} title={group} events={groupedEvents[group]} />
-      ))} */}
+      {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
     </Container>
   </AppLayout>
 );
 
-// Index.getInitialProps = async function () {
-//   const events = await Database.fetchUpcomingEvents();
+import { fetchUpcomingPublishedEvents } from "helpers/api";
 
-//   const groupedEvents = Event.groupByMonth(events);
+Index.getInitialProps = async () => {
+  const events = await fetchUpcomingPublishedEvents();
 
-//   return {
-//     groupedEvents: groupedEvents,
-//   };
-// };
+  return { events };
+};
 
 export default Index;
